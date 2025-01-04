@@ -13,7 +13,7 @@ class mainDevice extends Device {
    */
 	async onInit() {
 		this.log(`[Device] ${this.getName()}: ${this.getData().id} start init.`);
-		this.setUnavailable(`Initializing ${this.getName()}`);
+		this.setUnavailable(`Initializing ${this.getName()}`).catch(() => {});
 
 		const settings = this.getSettings();
 		this.api = new GoeChargerApi();
@@ -56,7 +56,7 @@ class mainDevice extends Device {
 			this.setAvailable();
 			return Promise.resolve(initialInfo);
 		} catch (error) {
-			this.setUnavailable(error);
+			this.setUnavailable(error).catch(() => {});
 			return Promise.reject(error);
 		}
 	}
@@ -113,7 +113,7 @@ class mainDevice extends Device {
 		this.setSettings({
 			address: this.api.address,
 		});
-		this.setUnavailable('Discovery device offline.');
+		this.setUnavailable('Discovery device offline.').catch(() => {});
 	}
 
 	async setCapabilityListeners() {
@@ -283,7 +283,7 @@ class mainDevice extends Device {
 				}
 			}
 		} catch (error) {
-			await this.setUnavailable(error).catch(this.error);
+			await this.setUnavailable(error).catch(() => {});
 			this.log(error);
 		}
 	}
@@ -341,7 +341,7 @@ class mainDevice extends Device {
 			this.log(`[Device] ${this.getName()}: ${this.getData().id} onPollInterval =>`, POLL_INTERVAL);
 			this.onPollInterval = this.homey.setInterval(this.setCapabilityValues.bind(this), POLL_INTERVAL);
 		} catch (error) {
-			this.setUnavailable(error);
+			this.setUnavailable(error).catch(() => {});
 			this.log(error);
 		}
 	}
