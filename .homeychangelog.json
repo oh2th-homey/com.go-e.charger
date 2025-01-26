@@ -103,5 +103,8 @@
   },
   "2.8.2": {
     "en": "Fix titleFormatted strings in flow conditions"
+  },
+  "2.8.3": {
+    "en": "Deprecate gen 1 device and merge it into gen 2 device"
   }
 }
