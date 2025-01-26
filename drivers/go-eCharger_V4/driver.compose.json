@@ -1,9 +1,9 @@
 {
   "name": {
-    "en": "Gemini, 4th gen (GM-10)",
-    "nl": "Gemini, 4e gen (GM-10)",
-    "de": "Gemini, 4. Gen (GM-10)",
-    "fr": "Gemini, 4e gen (GM-10)"
+    "en": "Gemini (GM-10)",
+    "nl": "Gemini (GM-10)",
+    "de": "Gemini (GM-10)",
+    "fr": "Gemini (GM-10)"
   },
   "$extends": ["device", "go-e-APIv2", "pair-APIv2", "settings"]
 }

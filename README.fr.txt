@@ -1,5 +1,5 @@
-Prise en charge de toutes les gammes de chargeurs de véhicules électriques go-e HOME et Gemini.
+Prise en charge de toutes les familles de chargeurs EV Go-e HOME et Gemini.
 
-Activez le point de terminaison API pour votre chargeur à partir de l'application mobile. Si l'API V2 est disponible pour votre appareil, activez-la également.
+Activez le point de terminaison API pour votre chargeur à partir de l'application mobile. Utilisez l'API V2 si disponible.
 
-Veuillez noter que les appareils APIv2 (3e et 4e génération) doivent avoir le firmware 051.4 ou supérieur installé.
+Veuillez vous assurer que les dernières mises à jour du micrologiciel sont installées.
