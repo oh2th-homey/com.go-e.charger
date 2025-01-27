@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.go-e.charger",
-  "version": "2.8.3",
+  "version": "2.8.4",
   "compatibility": ">=12.2.0",
   "sdk": 3,
   "platforms": [
@@ -1345,10 +1345,10 @@
         }
       ],
       "name": {
-        "en": "Gemini (GM-10)",
-        "nl": "Gemini (GM-10)",
-        "de": "Gemini (GM-10)",
-        "fr": "Gemini (GM-10)"
+        "en": "Gemini (GM-10, GM-20)",
+        "nl": "Gemini (GM-10, GM-20)",
+        "de": "Gemini (GM-10, GM-20)",
+        "fr": "Gemini (GM-10, GM-20)"
       },
       "id": "go-eCharger_V4"
     }
