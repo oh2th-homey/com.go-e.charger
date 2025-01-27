@@ -107,13 +107,13 @@ class mainDevice extends Device {
 	}
 
 	onDiscoveryLastSeenChanged(discoveryResult) {
-		this.log(`[Device] ${this.getName()}: ${this.getData().id} offline - result: ${discoveryResult.address}.`);
-		this.log(`[Device] ${this.getName()}: ${this.getData().id} offline - result: ${discoveryResult.name}.`);
-		this.api.address = discoveryResult.address;
-		this.setSettings({
-			address: this.api.address,
-		});
-		this.setUnavailable('Discovery device offline.').catch(() => {});
+		this.log(`[Device] ${this.getName()}: ${this.getData().id} LastSeenChanged - result: ${discoveryResult.address}.`);
+		this.log(`[Device] ${this.getName()}: ${this.getData().id} LastSeenChanged - result: ${discoveryResult.name}.`);
+		//this.api.address = discoveryResult.address;
+		//this.setSettings({
+		//	address: this.api.address,
+		//});
+		//this.setUnavailable('Discovery device offline.').catch(() => {});
 	}
 
 	async setCapabilityListeners() {

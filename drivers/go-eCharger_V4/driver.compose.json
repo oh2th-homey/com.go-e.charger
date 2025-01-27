@@ -1,9 +1,9 @@
 {
   "name": {
-    "en": "Gemini (GM-10)",
-    "nl": "Gemini (GM-10)",
-    "de": "Gemini (GM-10)",
-    "fr": "Gemini (GM-10)"
+    "en": "Gemini (GM-10, GM-20)",
+    "nl": "Gemini (GM-10, GM-20)",
+    "de": "Gemini (GM-10, GM-20)",
+    "fr": "Gemini (GM-10, GM-20)"
   },
   "$extends": ["device", "go-e-APIv2", "pair-APIv2", "settings"]
 }
