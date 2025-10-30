@@ -20,7 +20,8 @@
     "is_allowed",
     "is_charging",
     "is_connected",
-    "alarm_device"
+    "alarm_device",
+    "cards"
   ],
   "capabilitiesOptions": {
     "current_limit": {

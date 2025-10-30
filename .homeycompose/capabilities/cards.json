@@ -1,0 +1,19 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Cards",
+    "nl": "Kaarten",
+    "de": "Karten", 
+    "fr": "Cartes"
+  },
+  "desc": {
+    "en": "Configured cards for authentication.",
+    "nl": "Geconfigureerde kaarten voor authenticatie.",
+    "de": "Konfigurierte Karten für die Authentifizierung.",
+    "fr": "Cartes configurées pour l'authentification."
+  },
+  "getable": true,
+  "setable": false,
+  "insights": false,
+  "uiComponent": null
+}

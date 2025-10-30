@@ -268,6 +268,11 @@ class mainDevice extends Device {
 				await this.setValue('current_limit', deviceInfo['current_limit'], check);
 				await this.setValue('current_max', deviceInfo['current_max'], check);
 				await this.setValue('alarm_device', deviceInfo['alarm_device'], check);
+				
+				// Handle cards capability for APIv2 devices
+				if (deviceInfo.cards !== undefined) {
+					await this.setValue('cards', JSON.stringify(deviceInfo.cards), check);
+				}
 
 				// Check for device's maximum current configuration and connected Type-2 cables ampere coding
 				// and adjust device current_limit capability maximum setting value for the lesser.
