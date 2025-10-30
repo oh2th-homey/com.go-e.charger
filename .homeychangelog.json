@@ -109,5 +109,8 @@
   },
   "2.8.4": {
     "en": "FIX: Recover from device offline after rediscovery by mDNS."
+  },
+  "2.9.0": {
+    "en": "Add support for RFID card based power metering. These are hidden capabilities meter_power.card_N and name_meter_power.card_N."
   }
 }
