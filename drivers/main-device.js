@@ -560,7 +560,10 @@ class mainDevice extends Device {
             const cardIndex = parseInt(value.toString().substring(5)); // More efficient than replace
             if (cardIndex >= 1 && cardIndex <= 10) {
               const cardNameCapability = `name_meter_power.card_${cardIndex}`;
-              const cardNameValue = this.hasCapability(cardNameCapability) ? await this.getCapabilityValue(cardNameCapability) : null;
+              let cardNameValue = null;
+              if (this.hasCapability(cardNameCapability)) {
+                cardNameValue = await this.getCapabilityValue(cardNameCapability);
+              }
               cardName = (cardNameValue && cardNameValue !== "n/a") ? cardNameValue : `Card ${cardIndex}`;
             } else {
               cardName = `Unknown card (${value})`;
@@ -574,15 +577,9 @@ class mainDevice extends Device {
 
           await this.homey.flow
             .getDeviceTriggerCard(`${newKey}_changed`)
-            .trigger(this, {
-              card_name: cardName,
-            })
-            .catch(this.error)
-            .then(
-              this.log(
-                `[Device] ${this.getName()} - setValue ${newKey}_changed - Triggered: "${newKey} | ${value} | ${cardName}"`
-              )
-            );
+            .trigger(this, { card_name: cardName, })
+            .then(this.log(`[Device] ${this.getName()} - setValue ${newKey}_changed - Triggered: "${newKey} | ${value} | ${cardName}"`))
+            .catch(this.error);
         }
       }
     }
