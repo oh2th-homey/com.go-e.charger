@@ -1,0 +1,39 @@
+{
+  "title": {
+    "en": "Transaction changed",
+    "nl": "Transactie gewijzigd",
+    "de": "Transaktion geändert",
+    "fr": "Transaction modifiée"
+  },
+  "titleFormatted": {
+    "en": "Transaction changed",
+    "nl": "Transactie gewijzigd",
+    "de": "Transaktion geändert",
+    "fr": "Transaction modifiée"
+  },
+  "hint": {
+    "en": "The charging transaction has changed (card or authentication).",
+    "nl": "De laadtransactie is gewijzigd (kaart of authenticatie).",
+    "de": "Die Ladetransaktion hat sich geändert (Karte oder Authentifizierung).",
+    "fr": "La transaction de charge a changé (carte ou authentification)."
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "card_name",
+      "type": "string",
+      "title": {
+        "en": "Card Name",
+        "nl": "Kaartnaam",
+        "de": "Kartenname",
+        "fr": "Nom de la carte"
+      }
+    }
+  ]
+}

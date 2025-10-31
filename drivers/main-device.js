@@ -536,6 +536,52 @@ class mainDevice extends Device {
             );
         }
       }
+
+      // Transaction capability with card name lookup
+      if (key === "transaction" && oldVal !== value && !firstRun) {
+        const newKey = key.replace(/\./g, "_");
+        const { triggers } = this.homey.manifest.flow;
+        const triggerExists = triggers.find(
+          (trigger) => trigger.id === `${newKey}_changed`
+        );
+
+        if (triggerExists) {
+          // Static mapping for predefined transaction values
+          const transactionNames = {
+            null: "No transaction",
+            auth_none: "Not authenticated",
+            auth_0: "Anonymous"
+          };
+
+          let cardName = transactionNames[value];
+
+          // Handle auth_1 through auth_10 with direct card lookup
+          if (!cardName && value && value.toString().startsWith("auth_")) {
+            const cardIndex = parseInt(value.toString().substring(5)); // More efficient than replace
+            if (cardIndex >= 1 && cardIndex <= 10) {
+              const cardNameCapability = `name_meter_power.card_${cardIndex}`;
+              let cardNameValue = null;
+              if (this.hasCapability(cardNameCapability)) {
+                cardNameValue = await this.getCapabilityValue(cardNameCapability);
+              }
+              cardName = (cardNameValue && cardNameValue !== "n/a") ? cardNameValue : `Card ${cardIndex}`;
+            } else {
+              cardName = `Unknown card (${value})`;
+            }
+          }
+
+          // Fallback for any unhandled transaction values
+          if (!cardName) {
+            cardName = `Unknown transaction (${value})`;
+          }
+
+          await this.homey.flow
+            .getDeviceTriggerCard(`${newKey}_changed`)
+            .trigger(this, { card_name: cardName, })
+            .then(this.log(`[Device] ${this.getName()} - setValue ${newKey}_changed - Triggered: "${newKey} | ${value} | ${cardName}"`))
+            .catch(this.error);
+        }
+      }
     }
   }
 
@@ -605,7 +651,9 @@ class mainDevice extends Device {
       // Remove old capabilities with delay between each
       for (const c of oldC) {
         this.log(
-          `[Device] ${this.getName()} - updateCapabilities => Remove `, c);
+          `[Device] ${this.getName()} - updateCapabilities => Remove `,
+          c
+        );
         this.removeCapability(c);
         await sleep(500);
       }

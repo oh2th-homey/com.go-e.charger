@@ -112,5 +112,8 @@
   },
   "2.9.0": {
     "en": "Add support for RFID card based power metering. These are hidden capabilities meter_power.card_N and name_meter_power.card_N."
+  },
+  "2.9.1": {
+    "en": "Add Transaction changed trigger card with User card tag for the respective RFID tag."
   }
 }
