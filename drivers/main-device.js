@@ -546,33 +546,30 @@ class mainDevice extends Device {
         );
 
         if (triggerExists) {
-          // Lookup card name based on transaction value
-          let cardName = "";
-          if (value === null) {
-            cardName = "No transaction";
-          } else if (value === 0 || value === "0") {
-            cardName = "Anonymous";
-          } else {
-            // value is card index (1-10), lookup name from name_meter_power.card_N
-            const cardIndex = parseInt(value);
+          // Static mapping for predefined transaction values
+          const transactionNames = {
+            null: "No transaction",
+            auth_none: "Not authenticated",
+            auth_0: "Anonymous"
+          };
+
+          let cardName = transactionNames[value];
+
+          // Handle auth_1 through auth_10 with direct card lookup
+          if (!cardName && value && value.toString().startsWith("auth_")) {
+            const cardIndex = parseInt(value.toString().substring(5)); // More efficient than replace
             if (cardIndex >= 1 && cardIndex <= 10) {
               const cardNameCapability = `name_meter_power.card_${cardIndex}`;
-              if (this.hasCapability(cardNameCapability)) {
-                const cardNameValue =
-                  this.getCapabilityValue(cardNameCapability);
-                if (cardNameValue === null) {
-                  cardName = "Unconfigured card";
-                } else if ( cardNameValue === "" || cardNameValue === undefined ) {
-                  cardName = `Card ${cardIndex}`;
-                } else {
-                  cardName = cardNameValue;
-                }
-              } else {
-                cardName = `Card ${cardIndex}`;
-              }
+              const cardNameValue = this.hasCapability(cardNameCapability) ? await this.getCapabilityValue(cardNameCapability) : null;
+              cardName = (cardNameValue && cardNameValue !== "n/a") ? cardNameValue : `Card ${cardIndex}`;
             } else {
               cardName = `Unknown card (${value})`;
             }
+          }
+
+          // Fallback for any unhandled transaction values
+          if (!cardName) {
+            cardName = `Unknown transaction (${value})`;
           }
 
           await this.homey.flow
