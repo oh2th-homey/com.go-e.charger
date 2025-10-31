@@ -115,5 +115,8 @@
   },
   "2.9.1": {
     "en": "Add Transaction changed trigger card with User card tag for the respective RFID tag."
+  },
+  "2.9.2": {
+    "en": "Minor code optimizations to setValue"
   }
 }
