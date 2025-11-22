@@ -526,35 +526,6 @@
           }
         ],
         "id": "is_connected"
-      },
-      {
-        "title": {
-          "en": "Single phase !{{is|isn't}} active",
-          "nl": "Eenfasig !{{is|is niet}} actief",
-          "de": "Einphasig !{{ist|ist nicht}} aktiv",
-          "fr": "Monophasé !{{est|n'est pas}} actif"
-        },
-        "titleFormatted": {
-          "en": "Single phase !{{is|isn't}} active",
-          "nl": "Eenfasig !{{is|is niet}} actief",
-          "de": "Einphasig !{{ist|ist nicht}} aktiv",
-          "fr": "Monophasé !{{est|n'est pas}} actif"
-        },
-        "hint": {
-          "en": "Single phase charging is/isn't active.",
-          "nl": "Eenfasig laden is/is niet actief.",
-          "de": "Einphasig Laden ist/ist nicht aktiv.",
-          "fr": "La charge monophasée est/n'est pas active."
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
-          }
-        ],
-        "deprecated": true,
-        "id": "is_single_phase"
       }
     ],
     "actions": [
@@ -1028,26 +999,26 @@
       "capabilities": [
         "meter_power",
         "meter_power.session",
-        "meter_power.card_1",
-        "meter_power.card_2",
-        "meter_power.card_3",
-        "meter_power.card_4",
-        "meter_power.card_5",
-        "meter_power.card_6",
-        "meter_power.card_7",
-        "meter_power.card_8",
-        "meter_power.card_9",
-        "meter_power.card_10",
-        "name_meter_power.card_1",
-        "name_meter_power.card_2",
-        "name_meter_power.card_3",
-        "name_meter_power.card_4",
-        "name_meter_power.card_5",
-        "name_meter_power.card_6",
-        "name_meter_power.card_7",
-        "name_meter_power.card_8",
-        "name_meter_power.card_9",
-        "name_meter_power.card_10",
+        "meter_power.1",
+        "meter_power.2",
+        "meter_power.3",
+        "meter_power.4",
+        "meter_power.5",
+        "meter_power.6",
+        "meter_power.7",
+        "meter_power.8",
+        "meter_power.9",
+        "meter_power.10",
+        "name_meter_power.1",
+        "name_meter_power.2",
+        "name_meter_power.3",
+        "name_meter_power.4",
+        "name_meter_power.5",
+        "name_meter_power.6",
+        "name_meter_power.7",
+        "name_meter_power.8",
+        "name_meter_power.9",
+        "name_meter_power.10",
         "measure_power",
         "measure_current",
         "measure_voltage",
@@ -1138,296 +1109,6 @@
           "min": 0,
           "max": 500,
           "insights": true
-        },
-        "meter_power.card_1": {
-          "type": "number",
-          "title": {
-            "en": "Card 1 Energy",
-            "nl": "Kaart 1 Energie",
-            "de": "Karte 1 Energie",
-            "fr": "Carte 1 Énergie"
-          },
-          "getable": true,
-          "setable": false,
-          "units": {
-            "en": "kWh"
-          },
-          "insights": true,
-          "uiComponent": null
-        },
-        "meter_power.card_2": {
-          "type": "number",
-          "title": {
-            "en": "Card 2 Energy",
-            "nl": "Kaart 2 Energie",
-            "de": "Karte 2 Energie",
-            "fr": "Carte 2 Énergie"
-          },
-          "getable": true,
-          "setable": false,
-          "units": {
-            "en": "kWh"
-          },
-          "insights": true,
-          "uiComponent": null
-        },
-        "meter_power.card_3": {
-          "type": "number",
-          "title": {
-            "en": "Card 3 Energy",
-            "nl": "Kaart 3 Energie",
-            "de": "Karte 3 Energie",
-            "fr": "Carte 3 Énergie"
-          },
-          "getable": true,
-          "setable": false,
-          "units": {
-            "en": "kWh"
-          },
-          "insights": true,
-          "uiComponent": null
-        },
-        "meter_power.card_4": {
-          "type": "number",
-          "title": {
-            "en": "Card 4 Energy",
-            "nl": "Kaart 4 Energie",
-            "de": "Karte 4 Energie",
-            "fr": "Carte 4 Énergie"
-          },
-          "getable": true,
-          "setable": false,
-          "units": {
-            "en": "kWh"
-          },
-          "insights": true,
-          "uiComponent": null
-        },
-        "meter_power.card_5": {
-          "type": "number",
-          "title": {
-            "en": "Card 5 Energy",
-            "nl": "Kaart 5 Energie",
-            "de": "Karte 5 Energie",
-            "fr": "Carte 5 Énergie"
-          },
-          "getable": true,
-          "setable": false,
-          "units": {
-            "en": "kWh"
-          },
-          "insights": true,
-          "uiComponent": null
-        },
-        "meter_power.card_6": {
-          "type": "number",
-          "title": {
-            "en": "Card 6 Energy",
-            "nl": "Kaart 6 Energie",
-            "de": "Karte 6 Energie",
-            "fr": "Carte 6 Énergie"
-          },
-          "getable": true,
-          "setable": false,
-          "units": {
-            "en": "kWh"
-          },
-          "insights": true,
-          "uiComponent": null
-        },
-        "meter_power.card_7": {
-          "type": "number",
-          "title": {
-            "en": "Card 7 Energy",
-            "nl": "Kaart 7 Energie",
-            "de": "Karte 7 Energie",
-            "fr": "Carte 7 Énergie"
-          },
-          "getable": true,
-          "setable": false,
-          "units": {
-            "en": "kWh"
-          },
-          "insights": true,
-          "uiComponent": null
-        },
-        "meter_power.card_8": {
-          "type": "number",
-          "title": {
-            "en": "Card 8 Energy",
-            "nl": "Kaart 8 Energie",
-            "de": "Karte 8 Energie",
-            "fr": "Carte 8 Énergie"
-          },
-          "getable": true,
-          "setable": false,
-          "units": {
-            "en": "kWh"
-          },
-          "insights": true,
-          "uiComponent": null
-        },
-        "meter_power.card_9": {
-          "type": "number",
-          "title": {
-            "en": "Card 9 Energy",
-            "nl": "Kaart 9 Energie",
-            "de": "Karte 9 Energie",
-            "fr": "Carte 9 Énergie"
-          },
-          "getable": true,
-          "setable": false,
-          "units": {
-            "en": "kWh"
-          },
-          "insights": true,
-          "uiComponent": null
-        },
-        "meter_power.card_10": {
-          "type": "number",
-          "title": {
-            "en": "Card 10 Energy",
-            "nl": "Kaart 10 Energie",
-            "de": "Karte 10 Energie",
-            "fr": "Carte 10 Énergie"
-          },
-          "getable": true,
-          "setable": false,
-          "units": {
-            "en": "kWh"
-          },
-          "insights": true,
-          "uiComponent": null
-        },
-        "name_meter_power.card_1": {
-          "type": "string",
-          "title": {
-            "en": "Card 1 Name",
-            "nl": "Kaart 1 Naam",
-            "de": "Karte 1 Name",
-            "fr": "Carte 1 Nom"
-          },
-          "getable": true,
-          "setable": false,
-          "insights": false,
-          "uiComponent": null
-        },
-        "name_meter_power.card_2": {
-          "type": "string",
-          "title": {
-            "en": "Card 2 Name",
-            "nl": "Kaart 2 Naam",
-            "de": "Karte 2 Name",
-            "fr": "Carte 2 Nom"
-          },
-          "getable": true,
-          "setable": false,
-          "insights": false,
-          "uiComponent": null
-        },
-        "name_meter_power.card_3": {
-          "type": "string",
-          "title": {
-            "en": "Card 3 Name",
-            "nl": "Kaart 3 Naam",
-            "de": "Karte 3 Name",
-            "fr": "Carte 3 Nom"
-          },
-          "getable": true,
-          "setable": false,
-          "insights": false,
-          "uiComponent": null
-        },
-        "name_meter_power.card_4": {
-          "type": "string",
-          "title": {
-            "en": "Card 4 Name",
-            "nl": "Kaart 4 Naam",
-            "de": "Karte 4 Name",
-            "fr": "Carte 4 Nom"
-          },
-          "getable": true,
-          "setable": false,
-          "insights": false,
-          "uiComponent": null
-        },
-        "name_meter_power.card_5": {
-          "type": "string",
-          "title": {
-            "en": "Card 5 Name",
-            "nl": "Kaart 5 Naam",
-            "de": "Karte 5 Name",
-            "fr": "Carte 5 Nom"
-          },
-          "getable": true,
-          "setable": false,
-          "insights": false,
-          "uiComponent": null
-        },
-        "name_meter_power.card_6": {
-          "type": "string",
-          "title": {
-            "en": "Card 6 Name",
-            "nl": "Kaart 6 Naam",
-            "de": "Karte 6 Name",
-            "fr": "Carte 6 Nom"
-          },
-          "getable": true,
-          "setable": false,
-          "insights": false,
-          "uiComponent": null
-        },
-        "name_meter_power.card_7": {
-          "type": "string",
-          "title": {
-            "en": "Card 7 Name",
-            "nl": "Kaart 7 Naam",
-            "de": "Karte 7 Name",
-            "fr": "Carte 7 Nom"
-          },
-          "getable": true,
-          "setable": false,
-          "insights": false,
-          "uiComponent": null
-        },
-        "name_meter_power.card_8": {
-          "type": "string",
-          "title": {
-            "en": "Card 8 Name",
-            "nl": "Kaart 8 Naam",
-            "de": "Karte 8 Name",
-            "fr": "Carte 8 Nom"
-          },
-          "getable": true,
-          "setable": false,
-          "insights": false,
-          "uiComponent": null
-        },
-        "name_meter_power.card_9": {
-          "type": "string",
-          "title": {
-            "en": "Card 9 Name",
-            "nl": "Kaart 9 Naam",
-            "de": "Karte 9 Name",
-            "fr": "Carte 9 Nom"
-          },
-          "getable": true,
-          "setable": false,
-          "insights": false,
-          "uiComponent": null
-        },
-        "name_meter_power.card_10": {
-          "type": "string",
-          "title": {
-            "en": "Card 10 Name",
-            "nl": "Kaart 10 Naam",
-            "de": "Karte 10 Name",
-            "fr": "Carte 10 Nom"
-          },
-          "getable": true,
-          "setable": false,
-          "insights": false,
-          "uiComponent": null
         }
       },
       "discovery": "mdns_http_go-e",
@@ -1528,26 +1209,26 @@
       "capabilities": [
         "meter_power",
         "meter_power.session",
-        "meter_power.card_1",
-        "meter_power.card_2",
-        "meter_power.card_3",
-        "meter_power.card_4",
-        "meter_power.card_5",
-        "meter_power.card_6",
-        "meter_power.card_7",
-        "meter_power.card_8",
-        "meter_power.card_9",
-        "meter_power.card_10",
-        "name_meter_power.card_1",
-        "name_meter_power.card_2",
-        "name_meter_power.card_3",
-        "name_meter_power.card_4",
-        "name_meter_power.card_5",
-        "name_meter_power.card_6",
-        "name_meter_power.card_7",
-        "name_meter_power.card_8",
-        "name_meter_power.card_9",
-        "name_meter_power.card_10",
+        "meter_power.1",
+        "meter_power.2",
+        "meter_power.3",
+        "meter_power.4",
+        "meter_power.5",
+        "meter_power.6",
+        "meter_power.7",
+        "meter_power.8",
+        "meter_power.9",
+        "meter_power.10",
+        "name_meter_power.1",
+        "name_meter_power.2",
+        "name_meter_power.3",
+        "name_meter_power.4",
+        "name_meter_power.5",
+        "name_meter_power.6",
+        "name_meter_power.7",
+        "name_meter_power.8",
+        "name_meter_power.9",
+        "name_meter_power.10",
         "measure_power",
         "measure_current",
         "measure_voltage",
@@ -1638,296 +1319,6 @@
           "min": 0,
           "max": 500,
           "insights": true
-        },
-        "meter_power.card_1": {
-          "type": "number",
-          "title": {
-            "en": "Card 1 Energy",
-            "nl": "Kaart 1 Energie",
-            "de": "Karte 1 Energie",
-            "fr": "Carte 1 Énergie"
-          },
-          "getable": true,
-          "setable": false,
-          "units": {
-            "en": "kWh"
-          },
-          "insights": true,
-          "uiComponent": null
-        },
-        "meter_power.card_2": {
-          "type": "number",
-          "title": {
-            "en": "Card 2 Energy",
-            "nl": "Kaart 2 Energie",
-            "de": "Karte 2 Energie",
-            "fr": "Carte 2 Énergie"
-          },
-          "getable": true,
-          "setable": false,
-          "units": {
-            "en": "kWh"
-          },
-          "insights": true,
-          "uiComponent": null
-        },
-        "meter_power.card_3": {
-          "type": "number",
-          "title": {
-            "en": "Card 3 Energy",
-            "nl": "Kaart 3 Energie",
-            "de": "Karte 3 Energie",
-            "fr": "Carte 3 Énergie"
-          },
-          "getable": true,
-          "setable": false,
-          "units": {
-            "en": "kWh"
-          },
-          "insights": true,
-          "uiComponent": null
-        },
-        "meter_power.card_4": {
-          "type": "number",
-          "title": {
-            "en": "Card 4 Energy",
-            "nl": "Kaart 4 Energie",
-            "de": "Karte 4 Energie",
-            "fr": "Carte 4 Énergie"
-          },
-          "getable": true,
-          "setable": false,
-          "units": {
-            "en": "kWh"
-          },
-          "insights": true,
-          "uiComponent": null
-        },
-        "meter_power.card_5": {
-          "type": "number",
-          "title": {
-            "en": "Card 5 Energy",
-            "nl": "Kaart 5 Energie",
-            "de": "Karte 5 Energie",
-            "fr": "Carte 5 Énergie"
-          },
-          "getable": true,
-          "setable": false,
-          "units": {
-            "en": "kWh"
-          },
-          "insights": true,
-          "uiComponent": null
-        },
-        "meter_power.card_6": {
-          "type": "number",
-          "title": {
-            "en": "Card 6 Energy",
-            "nl": "Kaart 6 Energie",
-            "de": "Karte 6 Energie",
-            "fr": "Carte 6 Énergie"
-          },
-          "getable": true,
-          "setable": false,
-          "units": {
-            "en": "kWh"
-          },
-          "insights": true,
-          "uiComponent": null
-        },
-        "meter_power.card_7": {
-          "type": "number",
-          "title": {
-            "en": "Card 7 Energy",
-            "nl": "Kaart 7 Energie",
-            "de": "Karte 7 Energie",
-            "fr": "Carte 7 Énergie"
-          },
-          "getable": true,
-          "setable": false,
-          "units": {
-            "en": "kWh"
-          },
-          "insights": true,
-          "uiComponent": null
-        },
-        "meter_power.card_8": {
-          "type": "number",
-          "title": {
-            "en": "Card 8 Energy",
-            "nl": "Kaart 8 Energie",
-            "de": "Karte 8 Energie",
-            "fr": "Carte 8 Énergie"
-          },
-          "getable": true,
-          "setable": false,
-          "units": {
-            "en": "kWh"
-          },
-          "insights": true,
-          "uiComponent": null
-        },
-        "meter_power.card_9": {
-          "type": "number",
-          "title": {
-            "en": "Card 9 Energy",
-            "nl": "Kaart 9 Energie",
-            "de": "Karte 9 Energie",
-            "fr": "Carte 9 Énergie"
-          },
-          "getable": true,
-          "setable": false,
-          "units": {
-            "en": "kWh"
-          },
-          "insights": true,
-          "uiComponent": null
-        },
-        "meter_power.card_10": {
-          "type": "number",
-          "title": {
-            "en": "Card 10 Energy",
-            "nl": "Kaart 10 Energie",
-            "de": "Karte 10 Energie",
-            "fr": "Carte 10 Énergie"
-          },
-          "getable": true,
-          "setable": false,
-          "units": {
-            "en": "kWh"
-          },
-          "insights": true,
-          "uiComponent": null
-        },
-        "name_meter_power.card_1": {
-          "type": "string",
-          "title": {
-            "en": "Card 1 Name",
-            "nl": "Kaart 1 Naam",
-            "de": "Karte 1 Name",
-            "fr": "Carte 1 Nom"
-          },
-          "getable": true,
-          "setable": false,
-          "insights": false,
-          "uiComponent": null
-        },
-        "name_meter_power.card_2": {
-          "type": "string",
-          "title": {
-            "en": "Card 2 Name",
-            "nl": "Kaart 2 Naam",
-            "de": "Karte 2 Name",
-            "fr": "Carte 2 Nom"
-          },
-          "getable": true,
-          "setable": false,
-          "insights": false,
-          "uiComponent": null
-        },
-        "name_meter_power.card_3": {
-          "type": "string",
-          "title": {
-            "en": "Card 3 Name",
-            "nl": "Kaart 3 Naam",
-            "de": "Karte 3 Name",
-            "fr": "Carte 3 Nom"
-          },
-          "getable": true,
-          "setable": false,
-          "insights": false,
-          "uiComponent": null
-        },
-        "name_meter_power.card_4": {
-          "type": "string",
-          "title": {
-            "en": "Card 4 Name",
-            "nl": "Kaart 4 Naam",
-            "de": "Karte 4 Name",
-            "fr": "Carte 4 Nom"
-          },
-          "getable": true,
-          "setable": false,
-          "insights": false,
-          "uiComponent": null
-        },
-        "name_meter_power.card_5": {
-          "type": "string",
-          "title": {
-            "en": "Card 5 Name",
-            "nl": "Kaart 5 Naam",
-            "de": "Karte 5 Name",
-            "fr": "Carte 5 Nom"
-          },
-          "getable": true,
-          "setable": false,
-          "insights": false,
-          "uiComponent": null
-        },
-        "name_meter_power.card_6": {
-          "type": "string",
-          "title": {
-            "en": "Card 6 Name",
-            "nl": "Kaart 6 Naam",
-            "de": "Karte 6 Name",
-            "fr": "Carte 6 Nom"
-          },
-          "getable": true,
-          "setable": false,
-          "insights": false,
-          "uiComponent": null
-        },
-        "name_meter_power.card_7": {
-          "type": "string",
-          "title": {
-            "en": "Card 7 Name",
-            "nl": "Kaart 7 Naam",
-            "de": "Karte 7 Name",
-            "fr": "Carte 7 Nom"
-          },
-          "getable": true,
-          "setable": false,
-          "insights": false,
-          "uiComponent": null
-        },
-        "name_meter_power.card_8": {
-          "type": "string",
-          "title": {
-            "en": "Card 8 Name",
-            "nl": "Kaart 8 Naam",
-            "de": "Karte 8 Name",
-            "fr": "Carte 8 Nom"
-          },
-          "getable": true,
-          "setable": false,
-          "insights": false,
-          "uiComponent": null
-        },
-        "name_meter_power.card_9": {
-          "type": "string",
-          "title": {
-            "en": "Card 9 Name",
-            "nl": "Kaart 9 Naam",
-            "de": "Karte 9 Name",
-            "fr": "Carte 9 Nom"
-          },
-          "getable": true,
-          "setable": false,
-          "insights": false,
-          "uiComponent": null
-        },
-        "name_meter_power.card_10": {
-          "type": "string",
-          "title": {
-            "en": "Card 10 Name",
-            "nl": "Kaart 10 Naam",
-            "de": "Karte 10 Name",
-            "fr": "Carte 10 Nom"
-          },
-          "getable": true,
-          "setable": false,
-          "insights": false,
-          "uiComponent": null
         }
       },
       "discovery": "mdns_http_go-e",
