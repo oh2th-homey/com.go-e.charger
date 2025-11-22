@@ -325,19 +325,92 @@ class mainDevice extends Device {
 			}
 
 			// Number capabilities where id starts with 'num_'.
-			if (typeof value === 'number' && key.startsWith('num_') && oldVal !== value && !firstRun) {
-				const newKey = key.replace(/\./g, '_');
-				const { triggers } = this.homey.manifest.flow;
-				const triggerExists = triggers.find((trigger) => trigger.id === `${newKey}_changed`);
+			if (
+        typeof value === "number" &&
+        key.startsWith("num_") &&
+        oldVal !== value &&
+        !firstRun
+      ) {
+        const newKey = key.replace(/\./g, "_");
+        const { triggers } = this.homey.manifest.flow;
+        const triggerExists = triggers.find(
+          (trigger) => trigger.id === `${newKey}_changed`
+        );
 
-				if (triggerExists) {
-					await this.homey.flow
-						.getDeviceTriggerCard(`${newKey}_changed`)
-						.trigger(this, { [`${key}`]: value })
-						.catch(this.error)
-						.then(this.log(`[Device] ${this.getName()} - setValue ${newKey}_changed - Triggered: "${newKey} | ${value}"`));
-				}
-			}
+        if (triggerExists) {
+          await this.homey.flow
+            .getDeviceTriggerCard(`${newKey}_changed`)
+            .trigger(this, { [`${key}`]: value })
+            .catch(this.error)
+            .then(
+              this.log(
+                `[Device] ${this.getName()} - setValue ${newKey}_changed - Triggered: "${newKey} | ${value}"`
+              )
+            );
+        }
+      }
+
+      // Transaction capability with card name lookup
+      if (key === "transaction" && oldVal !== value && !firstRun) {
+        const newKey = key.replace(/\./g, "_");
+
+        // Get the cardName for the transaction
+            let cardName = null;
+            const transactionNames = {
+              null: "No transaction",
+              auth_none: "Not authenticated",
+              auth_0: "Anonymous",
+            };
+
+            cardName = transactionNames[value];
+
+            // Handle auth_1 through auth_10 with direct card lookup
+            if (!cardName && value && value.toString().startsWith("auth_")) {
+              const cardIndex = parseInt(value.toString().substring(5)); // More efficient than replace
+              if (cardIndex >= 1 && cardIndex <= 10) {
+                const cardNameCapability = `name_meter_power.card_${cardIndex}`;
+                let cardNameValue = null;
+                if (this.hasCapability(cardNameCapability)) {
+                  cardNameValue = await this.getCapabilityValue(
+                    cardNameCapability
+                  );
+                }
+                cardName =
+                  cardNameValue && cardNameValue !== "n/a"
+                    ? cardNameValue
+                    : `Card ${cardIndex}`;
+              } else {
+                cardName = `Unknown card (${value})`;
+              }
+            }
+
+
+        // Generate flowToken transaction_name
+        try {
+          const trx_token = this.homey.flow.getToken('transaction_name')
+          if (trx_token) {
+            trx_token.setValue(cardName); }
+          else {
+            trx_token = this.homey.flow.createToken('transaction_name', {type: 'string', title: 'Transaction Card Name', value: cardName});
+          }
+        }
+        catch (error) {
+        }
+
+        // Verify that transaction_changed trigger exists and process the trigger card
+        const { triggers } = this.homey.manifest.flow;
+        const triggerExists = triggers.find(
+          (trigger) => trigger.id === `${newKey}_changed`
+        );
+
+        if (triggerExists) {
+          await this.homey.flow
+            .getDeviceTriggerCard(`${newKey}_changed`)
+            .trigger(this, { card_name: cardName })
+            .then(this.log(`[Device] ${this.getName()} - setValue ${newKey}_changed - Triggered: "${newKey} | ${value} | ${cardName}"`))
+            .catch(this.error);
+        }
+      }
 		}
 	}
 
