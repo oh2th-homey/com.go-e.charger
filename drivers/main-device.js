@@ -630,9 +630,8 @@ class mainDevice extends Device {
       );
 
       await this.updateCapabilities(driverCapabilities, deviceCapabilities);
-    }
 
-    return deviceCapabilities;
+      return deviceCapabilities;
     } catch (error) {
       this.log(error);
     }
