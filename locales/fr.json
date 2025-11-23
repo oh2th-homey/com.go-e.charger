@@ -17,6 +17,11 @@
     "set_current_limit": {
       "device_limit": "**Changer la limite de courant** La valeur de la carte est supérieure à la limite de l'appareil. Limite de l'appareil **__value__** A.",
       "cable_limit": "**Changer la limite de courant** La valeur de la carte est supérieure à la limite de câble. Limite de câble **__value__** A."
+    },
+    "token": {
+      "transaction_name": {
+        "title": "Nom de la carte utilisateur"
+      }
     }
   }
 }

@@ -17,6 +17,11 @@
     "set_current_limit": {
       "device_limit": "**Strombegrenzung ändern** Wert der Flusskarte ist höher als der Gerätelimit. Begrenzung auf Gerätelimit **__value__** A.",
       "cable_limit": "**Strombegrenzung ändern** Wert der Flusskarte ist höher als der Kabellimit. Begrenzung auf Kabellimit **__value__** A."
+    },
+    "token": {
+      "transaction_name": {
+        "title": "Benutzerkartenname"
+      }
     }
   }
 }

@@ -560,18 +560,10 @@ class mainDevice extends Device {
         }
 
         // Generate flowToken transaction_name
-        try {
-          const trx_token = this.homey.flow.getToken("transaction_name");
-          if (trx_token) {
-            trx_token.setValue(cardName);
-          } else {
-            trx_token = this.homey.flow.createToken("transaction_name", {
-              type: "string",
-              title: "Transaction Card Name",
-              value: cardName,
-            });
-          }
-        } catch (error) {}
+        //  const trx_token = this.homey.flow.getToken("transaction_name");
+        //  if (trx_token) {
+        //    trx_token.setValue(cardName);
+        //  }
 
         // Verify that transaction_changed trigger exists and process the trigger card
         const { triggers } = this.homey.manifest.flow;
@@ -638,8 +630,9 @@ class mainDevice extends Device {
       );
 
       await this.updateCapabilities(driverCapabilities, deviceCapabilities);
+    }
 
-      return deviceCapabilities;
+    return deviceCapabilities;
     } catch (error) {
       this.log(error);
     }
@@ -657,18 +650,20 @@ class mainDevice extends Device {
       this.log(`[Device] ${this.getName()} - Got old capabilities =>`, oldC);
       this.log(`[Device] ${this.getName()} - Got new capabilities =>`, newC);
 
-      oldC.forEach((c) => {
+      for (const c of oldC) {
         this.log(
           `[Device] ${this.getName()} - updateCapabilities => Remove `,
           c
         );
         this.removeCapability(c);
-      });
+        await sleep(500);
+      }
       await sleep(2000);
-      newC.forEach((c) => {
+      for (const c of newC) {
         this.log(`[Device] ${this.getName()} - updateCapabilities => Add `, c);
         this.addCapability(c);
-      });
+        await sleep(500);
+      }
       await sleep(2000);
     } catch (error) {
       this.log(error);

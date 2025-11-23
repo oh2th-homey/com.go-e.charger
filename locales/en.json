@@ -17,6 +17,11 @@
     "set_current_limit": {
       "device_limit": "**Change current limit** flow card value is higher than device limit. Limiting to device limit **__value__** A.",
       "cable_limit": "**Change current limit** flow card value is higher than cable limit. Limiting to cable limit **__value__** A."
+    },
+    "token": {
+      "transaction_name": {
+        "title": "User Card Name"
+      }
     }
   }
 }

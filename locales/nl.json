@@ -17,6 +17,11 @@
     "set_current_limit": {
       "device_limit": "**Amperage veranderen** kaart waarde is hoger dan apparaatlimiet. Beperking tot apparaatlimiet **__value__** A.",
       "cable_limit": "**Amperage veranderen** kaart waarde is hoger dan kabellimiet. Beperking tot kabel limiet **__value__** A."
+    },
+    "token": {
+      "transaction_name": {
+        "title": "Gebruikerskaart naam"
+      }
     }
   }
 }
