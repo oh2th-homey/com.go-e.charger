@@ -1,0 +1,19 @@
+{
+  "type": "string",
+  "title": {
+    "en": "User Card Name",
+    "de": "Benutzerkartenname",
+    "nl": "Gebruikerskaartnaam",
+    "fr": "Nom de la carte utilisateur"
+  },
+  "hint": {
+    "en": "The user card name for current transaction.",
+    "de": "Der Benutzerkartenname für die aktuelle Transaktion.",
+    "nl": "De gebruikerskaartnaam voor de huidige transactie.",
+    "fr": "Le nom de la carte utilisateur pour la transaction en cours."
+  },
+  "uiComponent": null,
+  "getable": true,
+  "setable": false,
+  "insights": false
+}

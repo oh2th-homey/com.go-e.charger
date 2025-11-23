@@ -1,10 +1,10 @@
 {
   "type": "string",
   "title": {
-    "en": "Power Meter Name"
+    "en": "Energy Meter Name"
   },
   "hint": {
-    "en": "The card name from go-e Charger for the power meter."
+    "en": "The card name from go-e Charger for the energy meter."
   },
   "uiComponent": null,
   "getable": true,

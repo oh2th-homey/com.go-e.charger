@@ -34,6 +34,7 @@
     "status",
     "authentication",
     "transaction",
+    "name_transaction",
     "button_single_phase",
     "button_three_phase",
     "num_phases",
@@ -89,6 +90,416 @@
         "en": "kWh"
       },
       "insights": true
+    },
+    "meter_power.1": {
+      "type": "number",
+      "title": {
+        "en": "Energy Meter Card 1",
+        "nl": "Energie Meter Kaart 1",
+        "de": "Energiezähler Karte 1",
+        "fr": "Compteur d'énergie Carte 1"
+      },
+      "hint": {
+        "en": "Energy usage in kilowatt-hour (kWh) from energy meter 1.",
+        "nl": "Het energieverbruik in kilowattuur (kWh) van energiemeter 1.",
+        "de": "Energieverbrauch in Kilowattstunden (kWh) vom Energiezähler 1.",
+        "fr": "Consommation d'énergie en kilowattheure (kWh) du compteur d'énergie 1."
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true,
+      "uiComponent": null
+    },
+    "meter_power.2": {
+      "type": "number",
+      "title": {
+        "en": "Energy Meter Card 2",
+        "nl": "Energie Meter Kaart 2",
+        "de": "Energiezähler Karte 2",
+        "fr": "Compteur d'énergie Carte 2"
+      },
+      "hint": {
+        "en": "Energy usage in kilowatt-hour (kWh) from energy meter 2.",
+        "nl": "Het energieverbruik in kilowattuur (kWh) van energiemeter 2.",
+        "de": "Energieverbrauch in Kilowattstunden (kWh) vom Energiezähler 2.",
+        "fr": "Consommation d'énergie en kilowattheure (kWh) du compteur d'énergie 2."
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true,
+      "uiComponent": null
+    },
+    "meter_power.3": {
+      "type": "number",
+      "title": {
+        "en": "Energy Meter Card 3",
+        "nl": "Energie Meter Kaart 3",
+        "de": "Energiezähler Karte 3",
+        "fr": "Compteur d'énergie Carte 3"
+      },
+      "hint": {
+        "en": "Energy usage in kilowatt-hour (kWh) from energy meter 3.",
+        "nl": "Het energieverbruik in kilowattuur (kWh) van energiemeter 3.",
+        "de": "Energieverbrauch in Kilowattstunden (kWh) vom Energiezähler 3.",
+        "fr": "Consommation d'énergie en kilowattheure (kWh) du compteur d'énergie 3."
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true,
+      "uiComponent": null
+    },
+    "meter_power.4": {
+      "type": "number",
+      "title": {
+        "en": "Energy Meter Card 4",
+        "nl": "Energie Meter Kaart 4",
+        "de": "Energiezähler Karte 4",
+        "fr": "Compteur d'énergie Carte 4"
+      },
+      "hint": {
+        "en": "Energy usage in kilowatt-hour (kWh) from energy meter 4.",
+        "nl": "Het energieverbruik in kilowattuur (kWh) van energiemeter 4.",
+        "de": "Energieverbrauch in Kilowattstunden (kWh) vom Energiezähler 4.",
+        "fr": "Consommation d'énergie en kilowattheure (kWh) du compteur d'énergie 4."
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true,
+      "uiComponent": null
+    },
+    "meter_power.5": {
+      "type": "number",
+      "title": {
+        "en": "Energy Meter Card 5",
+        "nl": "Energie Meter Kaart 5",
+        "de": "Energiezähler Karte 5",
+        "fr": "Compteur d'énergie Carte 5"
+      },
+      "hint": {
+        "en": "Energy usage in kilowatt-hour (kWh) from energy meter 5.",
+        "nl": "Het energieverbruik in kilowattuur (kWh) van energiemeter 5.",
+        "de": "Energieverbrauch in Kilowattstunden (kWh) vom Energiezähler 5.",
+        "fr": "Consommation d'énergie en kilowattheure (kWh) du compteur d'énergie 5."
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true,
+      "uiComponent": null
+    },
+    "meter_power.6": {
+      "type": "number",
+      "title": {
+        "en": "Energy Meter Card 6",
+        "nl": "Energie Meter Kaart 6",
+        "de": "Energiezähler Karte 6",
+        "fr": "Compteur d'énergie Carte 6"
+      },
+      "hint": {
+        "en": "Energy usage in kilowatt-hour (kWh) from energy meter 6.",
+        "nl": "Het energieverbruik in kilowattuur (kWh) van energiemeter 6.",
+        "de": "Energieverbrauch in Kilowattstunden (kWh) vom Energiezähler 6.",
+        "fr": "Consommation d'énergie en kilowattheure (kWh) du compteur d'énergie 6."
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true,
+      "uiComponent": null
+    },
+    "meter_power.7": {
+      "type": "number",
+      "title": {
+        "en": "Energy Meter Card 7",
+        "nl": "Energie Meter Kaart 7",
+        "de": "Energiezähler Karte 7",
+        "fr": "Compteur d'énergie Carte 7"
+      },
+      "hint": {
+        "en": "Energy usage in kilowatt-hour (kWh) from energy meter 7.",
+        "nl": "Het energieverbruik in kilowattuur (kWh) van energiemeter 7.",
+        "de": "Energieverbrauch in Kilowattstunden (kWh) vom Energiezähler 7.",
+        "fr": "Consommation d'énergie en kilowattheure (kWh) du compteur d'énergie 7."
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true,
+      "uiComponent": null
+    },
+    "meter_power.8": {
+      "type": "number",
+      "title": {
+        "en": "Energy Meter Card 8",
+        "nl": "Energie Meter Kaart 8",
+        "de": "Energiezähler Karte 8",
+        "fr": "Compteur d'énergie Carte 8"
+      },
+      "hint": {
+        "en": "Energy usage in kilowatt-hour (kWh) from energy meter 8.",
+        "nl": "Het energieverbruik in kilowattuur (kWh) van energiemeter 8.",
+        "de": "Energieverbrauch in Kilowattstunden (kWh) vom Energiezähler 8.",
+        "fr": "Consommation d'énergie en kilowattheure (kWh) du compteur d'énergie 8."
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true,
+      "uiComponent": null
+    },
+    "meter_power.9": {
+      "type": "number",
+      "title": {
+        "en": "Energy Meter Card 9",
+        "nl": "Energie Meter Kaart 9",
+        "de": "Energiezähler Karte 9",
+        "fr": "Compteur d'énergie Carte 9"
+      },
+      "hint": {
+        "en": "Energy usage in kilowatt-hour (kWh) from energy meter 9.",
+        "nl": "Het energieverbruik in kilowattuur (kWh) van energiemeter 9.",
+        "de": "Energieverbrauch in Kilowattstunden (kWh) vom Energiezähler 9.",
+        "fr": "Consommation d'énergie en kilowattheure (kWh) du compteur d'énergie 9."
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true,
+      "uiComponent": null
+    },
+    "meter_power.10": {
+      "type": "number",
+      "title": {
+        "en": "Energy Meter Card 10",
+        "nl": "Energie Meter Kaart 10",
+        "de": "Energiezähler Karte 10",
+        "fr": "Compteur d'énergie Carte 10"
+      },
+      "hint": {
+        "en": "Energy usage in kilowatt-hour (kWh) from energy meter 10.",
+        "nl": "Het energieverbruik in kilowattuur (kWh) van energiemeter 10.",
+        "de": "Energieverbrauch in Kilowattstunden (kWh) vom Energiezähler 10.",
+        "fr": "Consommation d'énergie en kilowattheure (kWh) du compteur d'énergie 10."
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true,
+      "uiComponent": null
+    },
+    "name_meter_power.1": {
+      "type": "string",
+      "title": {
+        "en": "Energy Meter Name 1",
+        "nl": "Energie Meter Naam 1",
+        "de": "Energiezähler Name 1",
+        "fr": "Nom du compteur d'énergie 1"
+      },
+      "hint": {
+        "en": "The card name from go-e Charger for the energy meter 1.",
+        "nl": "De kaartnaam van go-e Charger voor de energiemeter 1.",
+        "de": "Der Kartenname von go-e Charger für den Energiezähler 1.",
+        "fr": "Le nom de la carte de go-e Charger pour le compteur d'énergie 1."
+      },
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "uiComponent": null
+    },
+    "name_meter_power.2": {
+      "type": "string",
+      "title": {
+        "en": "Energy Meter Name 2",
+        "nl": "Energie Meter Naam 2",
+        "de": "Energiezähler Name 2",
+        "fr": "Nom du compteur d'énergie 2"
+      },
+      "hint": {
+        "en": "The card name from go-e Charger for the energy meter 2.",
+        "nl": "De kaartnaam van go-e Charger voor de energiemeter 2.",
+        "de": "Der Kartenname von go-e Charger für den Energiezähler 2.",
+        "fr": "Le nom de la carte de go-e Charger pour le compteur d'énergie 2."
+      },
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "uiComponent": null
+    },
+    "name_meter_power.3": {
+      "type": "string",
+      "title": {
+        "en": "Energy Meter Name 3",
+        "nl": "Energie Meter Naam 3",
+        "de": "Energiezähler Name 3",
+        "fr": "Nom du compteur d'énergie 3"
+      },
+      "hint": {
+        "en": "The card name from go-e Charger for the energy meter 3.",
+        "nl": "De kaartnaam van go-e Charger voor de energiemeter 3.",
+        "de": "Der Kartenname von go-e Charger für den Energiezähler 3.",
+        "fr": "Le nom de la carte de go-e Charger pour le compteur d'énergie 3."
+      },
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "uiComponent": null
+    },
+    "name_meter_power.4": {
+      "type": "string",
+      "title": {
+        "en": "Energy Meter Name 4",
+        "nl": "Energie Meter Naam 4",
+        "de": "Energiezähler Name 4",
+        "fr": "Nom du compteur d'énergie 4"
+      },
+      "hint": {
+        "en": "The card name from go-e Charger for the energy meter 4.",
+        "nl": "De kaartnaam van go-e Charger voor de energiemeter 4.",
+        "de": "Der Kartenname von go-e Charger für den Energiezähler 4.",
+        "fr": "Le nom de la carte de go-e Charger pour le compteur d'énergie 4."
+      },
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "uiComponent": null
+    },
+    "name_meter_power.5": {
+      "type": "string",
+      "title": {
+        "en": "Energy Meter Name 5",
+        "nl": "Energie Meter Naam 5",
+        "de": "Energiezähler Name 5",
+        "fr": "Nom du compteur d'énergie 5"
+      },
+      "hint": {
+        "en": "The card name from go-e Charger for the energy meter 5.",
+        "nl": "De kaartnaam van go-e Charger voor de energiemeter 5.",
+        "de": "Der Kartenname von go-e Charger für den Energiezähler 5.",
+        "fr": "Le nom de la carte de go-e Charger pour le compteur d'énergie 5."
+      },
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "uiComponent": null
+    },
+    "name_meter_power.6": {
+      "type": "string",
+      "title": {
+        "en": "Energy Meter Name 6",
+        "nl": "Energie Meter Naam 6",
+        "de": "Energiezähler Name 6",
+        "fr": "Nom du compteur d'énergie 6"
+      },
+      "hint": {
+        "en": "The card name from go-e Charger for the energy meter 6.",
+        "nl": "De kaartnaam van go-e Charger voor de energiemeter 6.",
+        "de": "Der Kartenname von go-e Charger für den Energiezähler 6.",
+        "fr": "Le nom de la carte de go-e Charger pour le compteur d'énergie 6."
+      },
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "uiComponent": null
+    },
+    "name_meter_power.7": {
+      "type": "string",
+      "title": {
+        "en": "Energy Meter Name 7",
+        "nl": "Energie Meter Naam 7",
+        "de": "Energiezähler Name 7",
+        "fr": "Nom du compteur d'énergie 7"
+      },
+      "hint": {
+        "en": "The card name from go-e Charger for the energy meter 7.",
+        "nl": "De kaartnaam van go-e Charger voor de energiemeter 7.",
+        "de": "Der Kartenname von go-e Charger für den Energiezähler 7.",
+        "fr": "Le nom de la carte de go-e Charger pour le compteur d'énergie 7."
+      },
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "uiComponent": null
+    },
+    "name_meter_power.8": {
+      "type": "string",
+      "title": {
+        "en": "Energy Meter Name 8",
+        "nl": "Energie Meter Naam 8",
+        "de": "Energiezähler Name 8",
+        "fr": "Nom du compteur d'énergie 8"
+      },
+      "hint": {
+        "en": "The card name from go-e Charger for the energy meter 8.",
+        "nl": "De kaartnaam van go-e Charger voor de energiemeter 8.",
+        "de": "Der Kartenname von go-e Charger für den Energiezähler 8.",
+        "fr": "Le nom de la carte de go-e Charger pour le compteur d'énergie 8."
+      },
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "uiComponent": null
+    },
+    "name_meter_power.9": {
+      "type": "string",
+      "title": {
+        "en": "Energy Meter Name 9",
+        "nl": "Energie Meter Naam 9",
+        "de": "Energiezähler Name 9",
+        "fr": "Nom du compteur d'énergie 9"
+      },
+      "hint": {
+        "en": "The card name from go-e Charger for the energy meter 9.",
+        "nl": "De kaartnaam van go-e Charger voor de energiemeter 9.",
+        "de": "Der Kartenname von go-e Charger für den Energiezähler 9.",
+        "fr": "Le nom de la carte de go-e Charger pour le compteur d'énergie 9."
+      },
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "uiComponent": null
+    },
+    "name_meter_power.10": {
+      "type": "string",
+      "title": {
+        "en": "Energy Meter Name 10",
+        "nl": "Energie Meter Naam 10",
+        "de": "Energiezähler Name 10",
+        "fr": "Nom du compteur d'énergie 10"
+      },
+      "hint": {
+        "en": "The card name from go-e Charger for the energy meter 10.",
+        "nl": "De kaartnaam van go-e Charger voor de energiemeter 10.",
+        "de": "Der Kartenname von go-e Charger für den Energiezähler 10.",
+        "fr": "Le nom de la carte de go-e Charger pour le compteur d'énergie 10."
+      },
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "uiComponent": null
     },
     "measure_voltage.output": {
       "type": "number",

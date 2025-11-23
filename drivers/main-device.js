@@ -554,16 +554,15 @@ class mainDevice extends Device {
               cardNameValue && cardNameValue !== "n/a"
                 ? cardNameValue
                 : `Card ${cardIndex}`;
-          } else {
-            cardName = `Unknown card (${value})`;
           }
         }
 
-        // Generate flowToken transaction_name
-        //  const trx_token = this.homey.flow.getToken("transaction_name");
-        //  if (trx_token) {
-        //    trx_token.setValue(cardName);
-        //  }
+        // Set the capability value for name_transaction
+        try {
+          await this.setCapabilityValue("name_transaction", cardName);
+        } catch (error) {
+          this.log(`${this.getName()} - setValue - error: ${error}`);
+        }
 
         // Verify that transaction_changed trigger exists and process the trigger card
         const { triggers } = this.homey.manifest.flow;
