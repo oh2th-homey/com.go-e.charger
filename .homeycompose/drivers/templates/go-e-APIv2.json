@@ -2,26 +2,26 @@
   "capabilities": [
     "meter_power",
     "meter_power.session",
-    "meter_power.card_1",
-    "meter_power.card_2",
-    "meter_power.card_3",
-    "meter_power.card_4",
-    "meter_power.card_5",
-    "meter_power.card_6",
-    "meter_power.card_7",
-    "meter_power.card_8",
-    "meter_power.card_9",
-    "meter_power.card_10",
-    "name_meter_power.card_1",
-    "name_meter_power.card_2",
-    "name_meter_power.card_3",
-    "name_meter_power.card_4",
-    "name_meter_power.card_5",
-    "name_meter_power.card_6",
-    "name_meter_power.card_7",
-    "name_meter_power.card_8",
-    "name_meter_power.card_9",
-    "name_meter_power.card_10",
+    "meter_power.1",
+    "meter_power.2",
+    "meter_power.3",
+    "meter_power.4",
+    "meter_power.5",
+    "meter_power.6",
+    "meter_power.7",
+    "meter_power.8",
+    "meter_power.9",
+    "meter_power.10",
+    "name_meter_power.1",
+    "name_meter_power.2",
+    "name_meter_power.3",
+    "name_meter_power.4",
+    "name_meter_power.5",
+    "name_meter_power.6",
+    "name_meter_power.7",
+    "name_meter_power.8",
+    "name_meter_power.9",
+    "name_meter_power.10",
     "measure_power",
     "measure_current",
     "measure_voltage",
@@ -34,6 +34,7 @@
     "status",
     "authentication",
     "transaction",
+    "name_transaction",
     "button_single_phase",
     "button_three_phase",
     "num_phases",
@@ -113,7 +114,7 @@
       "max": 500,
       "insights": true
     },
-    "meter_power.card_1": {
+    "meter_power.1": {
       "type": "number",
       "title": {
         "en": "Card 1 Energy",
@@ -129,7 +130,7 @@
       "insights": true,
       "uiComponent": null
     },
-    "meter_power.card_2": {
+    "meter_power.2": {
       "type": "number",
       "title": {
         "en": "Card 2 Energy",
@@ -145,7 +146,7 @@
       "insights": true,
       "uiComponent": null
     },
-    "meter_power.card_3": {
+    "meter_power.3": {
       "type": "number",
       "title": {
         "en": "Card 3 Energy",
@@ -161,7 +162,7 @@
       "insights": true,
       "uiComponent": null
     },
-    "meter_power.card_4": {
+    "meter_power.4": {
       "type": "number",
       "title": {
         "en": "Card 4 Energy",
@@ -177,7 +178,7 @@
       "insights": true,
       "uiComponent": null
     },
-    "meter_power.card_5": {
+    "meter_power.5": {
       "type": "number",
       "title": {
         "en": "Card 5 Energy",
@@ -193,7 +194,7 @@
       "insights": true,
       "uiComponent": null
     },
-    "meter_power.card_6": {
+    "meter_power.6": {
       "type": "number",
       "title": {
         "en": "Card 6 Energy",
@@ -209,7 +210,7 @@
       "insights": true,
       "uiComponent": null
     },
-    "meter_power.card_7": {
+    "meter_power.7": {
       "type": "number",
       "title": {
         "en": "Card 7 Energy",
@@ -225,7 +226,7 @@
       "insights": true,
       "uiComponent": null
     },
-    "meter_power.card_8": {
+    "meter_power.8": {
       "type": "number",
       "title": {
         "en": "Card 8 Energy",
@@ -241,7 +242,7 @@
       "insights": true,
       "uiComponent": null
     },
-    "meter_power.card_9": {
+    "meter_power.9": {
       "type": "number",
       "title": {
         "en": "Card 9 Energy",
@@ -257,7 +258,7 @@
       "insights": true,
       "uiComponent": null
     },
-    "meter_power.card_10": {
+    "meter_power.10": {
       "type": "number",
       "title": {
         "en": "Card 10 Energy",
@@ -273,7 +274,7 @@
       "insights": true,
       "uiComponent": null
     },
-    "name_meter_power.card_1": {
+    "name_meter_power.1": {
       "type": "string",
       "title": {
         "en": "Card 1 Name",
@@ -286,7 +287,7 @@
       "insights": false,
       "uiComponent": null
     },
-    "name_meter_power.card_2": {
+    "name_meter_power.2": {
       "type": "string",
       "title": {
         "en": "Card 2 Name",
@@ -299,7 +300,7 @@
       "insights": false,
       "uiComponent": null
     },
-    "name_meter_power.card_3": {
+    "name_meter_power.3": {
       "type": "string",
       "title": {
         "en": "Card 3 Name",
@@ -312,7 +313,7 @@
       "insights": false,
       "uiComponent": null
     },
-    "name_meter_power.card_4": {
+    "name_meter_power.4": {
       "type": "string",
       "title": {
         "en": "Card 4 Name",
@@ -325,7 +326,7 @@
       "insights": false,
       "uiComponent": null
     },
-    "name_meter_power.card_5": {
+    "name_meter_power.5": {
       "type": "string",
       "title": {
         "en": "Card 5 Name",
@@ -338,7 +339,7 @@
       "insights": false,
       "uiComponent": null
     },
-    "name_meter_power.card_6": {
+    "name_meter_power.6": {
       "type": "string",
       "title": {
         "en": "Card 6 Name",
@@ -351,7 +352,7 @@
       "insights": false,
       "uiComponent": null
     },
-    "name_meter_power.card_7": {
+    "name_meter_power.7": {
       "type": "string",
       "title": {
         "en": "Card 7 Name",
@@ -364,7 +365,7 @@
       "insights": false,
       "uiComponent": null
     },
-    "name_meter_power.card_8": {
+    "name_meter_power.8": {
       "type": "string",
       "title": {
         "en": "Card 8 Name",
@@ -377,7 +378,7 @@
       "insights": false,
       "uiComponent": null
     },
-    "name_meter_power.card_9": {
+    "name_meter_power.9": {
       "type": "string",
       "title": {
         "en": "Card 9 Name",
@@ -390,7 +391,7 @@
       "insights": false,
       "uiComponent": null
     },
-    "name_meter_power.card_10": {
+    "name_meter_power.10": {
       "type": "string",
       "title": {
         "en": "Card 10 Name",

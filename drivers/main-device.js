@@ -415,8 +415,8 @@ class mainDevice extends Device {
         // Handle card capabilities for APIv2 devices
         if (deviceInfo.cards && Array.isArray(deviceInfo.cards)) {
           for (const card of deviceInfo.cards) {
-            const energyCapabilityId = `meter_power.card_${card.id}`;
-            const nameCapabilityId = `name_meter_power.card_${card.id}`;
+            const energyCapabilityId = `meter_power.${card.id}`;
+            const nameCapabilityId = `name_meter_power.${card.id}`;
             await this.setValue(energyCapabilityId, card.energyKwh, check);
             await this.setValue(nameCapabilityId, card.name, check);
           }
@@ -559,20 +559,20 @@ class mainDevice extends Device {
           if (!cardName && value && value.toString().startsWith("auth_")) {
             const cardIndex = parseInt(value.toString().substring(5)); // More efficient than replace
             if (cardIndex >= 1 && cardIndex <= 10) {
-              const cardNameCapability = `name_meter_power.card_${cardIndex}`;
+              const cardNameCapability = `name_meter_power.${cardIndex}`;
               let cardNameValue = null;
               if (this.hasCapability(cardNameCapability)) {
                 cardNameValue = await this.getCapabilityValue(cardNameCapability);
               }
               cardName = (cardNameValue && cardNameValue !== "n/a") ? cardNameValue : `Card ${cardIndex}`;
-            } else {
-              cardName = `Unknown card (${value})`;
             }
           }
 
-          // Fallback for any unhandled transaction values
-          if (!cardName) {
-            cardName = `Unknown transaction (${value})`;
+          // Set the value for name_transaction capability
+          try {
+            await this.setCapabilityValue("name_transaction", cardName);
+          } catch (error) {
+            this.log(`${this.getName()} - setValue - error: ${error}`);
           }
 
           await this.homey.flow
