@@ -391,7 +391,14 @@ class mainDevice extends Device {
           deviceInfo["authentication"],
           check
         );
-        await this.setValue("transaction", deviceInfo["transaction"], check);
+
+        // Map API transaction values to capability enum values
+        let transactionValue = deviceInfo["transaction"];
+        if (transactionValue && typeof transactionValue === "string") {
+          // Map auth_* to card_* format expected by capability enum
+          transactionValue = transactionValue.replace("auth_", "card_");
+        }
+        await this.setValue("transaction", transactionValue, check);
         await this.setValue(
           "button_single_phase",
           deviceInfo["button_single_phase"],
@@ -549,37 +556,40 @@ class mainDevice extends Device {
           // Static mapping for predefined transaction values
           const transactionNames = {
             null: "No transaction",
-            auth_none: "Not authenticated",
-            auth_0: "Anonymous"
+            card_none: "Not authenticated",
+            card_0: "Anonymous",
           };
 
           let cardName = transactionNames[value];
 
-          // Handle auth_1 through auth_10 with direct card lookup
-          if (!cardName && value && value.toString().startsWith("auth_")) {
+          // Handle card_1 through card_10 with direct card lookup
+          if (!cardName && value && value.toString().startsWith("card_")) {
             const cardIndex = parseInt(value.toString().substring(5)); // More efficient than replace
             if (cardIndex >= 1 && cardIndex <= 10) {
               const cardNameCapability = `name_meter_power.${cardIndex}`;
               let cardNameValue = null;
               if (this.hasCapability(cardNameCapability)) {
-                cardNameValue = await this.getCapabilityValue(cardNameCapability);
+                cardNameValue = await this.getCapabilityValue(
+                  cardNameCapability
+                );
               }
-              cardName = (cardNameValue && cardNameValue !== "n/a") ? cardNameValue : `Card ${cardIndex}`;
+              cardName =
+                cardNameValue && cardNameValue !== "n/a"
+                  ? cardNameValue
+                  : `Card ${cardIndex}`;
             }
           }
 
           // Set the value for name_transaction capability
           try {
             await this.setCapabilityValue("name_transaction", cardName);
-            
+
             // If session is already at 0, store transaction name immediately
-            const currentSessionEnergy = this.hasCapability("meter_power.session") 
-              ? await this.getCapabilityValue("meter_power.session") 
-              : null;
-            
-            if (currentSessionEnergy === 0 && this.hasCapability("name_transaction.session")) {
-              await this.setCapabilityValue("name_transaction.session", cardName);
-              this.log(`[Device] ${this.getName()} - Stored transaction name immediately (session at 0): ${cardName}`);
+            const currentSessionEnergy = this.hasCapability("meter_power.session") ? await this.getCapabilityValue("meter_power.session") : null;
+
+            if (currentSessionEnergy === 0 && this.hasCapability("name_transaction.session") ) {
+              await this.setCapabilityValue("name_transaction.session", cardName );
+              this.log(`[Device] ${this.getName()} - New transaction session: ${cardName}`);
             }
           } catch (error) {
             this.log(`${this.getName()} - setValue - error: ${error}`);
@@ -587,28 +597,13 @@ class mainDevice extends Device {
 
           await this.homey.flow
             .getDeviceTriggerCard(`${newKey}_changed`)
-            .trigger(this, { card_name: cardName, })
-            .then(this.log(`[Device] ${this.getName()} - setValue ${newKey}_changed - Triggered: "${newKey} | ${value} | ${cardName}"`))
+            .trigger(this, { card_name: cardName })
+            .then(
+              this.log(
+                `[Device] ${this.getName()} - setValue ${newKey}_changed - Triggered: "${newKey} | ${value} | ${cardName}"`
+              )
+            )
             .catch(this.error);
-        }
-      }
-
-      // Store current transaction name to name_transaction.session when meter_power.session resets
-      if (key === "meter_power.session" && oldVal !== value && !firstRun) {
-        if (value === 0 && oldVal > 0) {
-          // Session has been reset, store current transaction name to session
-          try {
-            const currentTransactionName = this.hasCapability("name_transaction")
-              ? await this.getCapabilityValue("name_transaction")
-              : null;
-            
-            if (currentTransactionName && this.hasCapability("name_transaction.session")) {
-              await this.setCapabilityValue("name_transaction.session", currentTransactionName);
-              this.log(`[Device] ${this.getName()} - Stored session transaction name: ${currentTransactionName}`);
-            }
-          } catch (error) {
-            this.log(`${this.getName()} - session transaction name storage error: ${error}`);
-          }
         }
       }
     }
