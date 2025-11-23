@@ -35,6 +35,7 @@
     "authentication",
     "transaction",
     "name_transaction",
+    "name_transaction.session",
     "button_single_phase",
     "button_three_phase",
     "num_phases",
@@ -90,6 +91,25 @@
         "en": "kWh"
       },
       "insights": true
+    },
+    "name_transaction.session": {
+      "type": "string",
+      "title": {
+        "en": "User Card Name Last Session",
+        "de": "Benutzerkartenname letzte Sitzung",
+        "nl": "Gebruikerskaartnaam laatste sessie",
+        "fr": "Nom de la carte utilisateur dernière session"
+      },
+      "hint": {
+        "en": "The user card name for last transaction/session.",
+        "de": "Der Benutzerkartenname für die letzte Transaktion/Sitzung.",
+        "nl": "De gebruikerskaartnaam voor de laatste transactie/sessie.",
+        "fr": "Le nom de la carte utilisateur pour la dernière transaction/session."
+      },
+      "uiComponent": null,
+      "getable": true,
+      "setable": false,
+      "insights": false
     },
     "measure_voltage.output": {
       "type": "number",

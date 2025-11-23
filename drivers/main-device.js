@@ -571,6 +571,16 @@ class mainDevice extends Device {
           // Set the value for name_transaction capability
           try {
             await this.setCapabilityValue("name_transaction", cardName);
+            
+            // If session is already at 0, store transaction name immediately
+            const currentSessionEnergy = this.hasCapability("meter_power.session") 
+              ? await this.getCapabilityValue("meter_power.session") 
+              : null;
+            
+            if (currentSessionEnergy === 0 && this.hasCapability("name_transaction.session")) {
+              await this.setCapabilityValue("name_transaction.session", cardName);
+              this.log(`[Device] ${this.getName()} - Stored transaction name immediately (session at 0): ${cardName}`);
+            }
           } catch (error) {
             this.log(`${this.getName()} - setValue - error: ${error}`);
           }
@@ -580,6 +590,25 @@ class mainDevice extends Device {
             .trigger(this, { card_name: cardName, })
             .then(this.log(`[Device] ${this.getName()} - setValue ${newKey}_changed - Triggered: "${newKey} | ${value} | ${cardName}"`))
             .catch(this.error);
+        }
+      }
+
+      // Store current transaction name to name_transaction.session when meter_power.session resets
+      if (key === "meter_power.session" && oldVal !== value && !firstRun) {
+        if (value === 0 && oldVal > 0) {
+          // Session has been reset, store current transaction name to session
+          try {
+            const currentTransactionName = this.hasCapability("name_transaction")
+              ? await this.getCapabilityValue("name_transaction")
+              : null;
+            
+            if (currentTransactionName && this.hasCapability("name_transaction.session")) {
+              await this.setCapabilityValue("name_transaction.session", currentTransactionName);
+              this.log(`[Device] ${this.getName()} - Stored session transaction name: ${currentTransactionName}`);
+            }
+          } catch (error) {
+            this.log(`${this.getName()} - session transaction name storage error: ${error}`);
+          }
         }
       }
     }
