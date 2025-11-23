@@ -585,11 +585,23 @@ class mainDevice extends Device {
             await this.setCapabilityValue("name_transaction", cardName);
 
             // If session is already at 0, store transaction name immediately
-            const currentSessionEnergy = this.hasCapability("meter_power.session") ? await this.getCapabilityValue("meter_power.session") : null;
+            const currentSessionEnergy = this.hasCapability(
+              "meter_power.session"
+            )
+              ? await this.getCapabilityValue("meter_power.session")
+              : null;
 
-            if (currentSessionEnergy === 0 && this.hasCapability("name_transaction.session") ) {
-              await this.setCapabilityValue("name_transaction.session", cardName );
-              this.log(`[Device] ${this.getName()} - New transaction session: ${cardName}`);
+            if (
+              currentSessionEnergy === 0 &&
+              this.hasCapability("name_transaction.session")
+            ) {
+              await this.setCapabilityValue(
+                "name_transaction.session",
+                cardName
+              );
+              this.log(
+                `[Device] ${this.getName()} - New transaction session: ${cardName}`
+              );
             }
           } catch (error) {
             this.log(`${this.getName()} - setValue - error: ${error}`);
