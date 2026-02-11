@@ -121,5 +121,8 @@
   },
   "2.9.3": {
     "en": "ADD: Capability for last session's authenticated RFID card."
+  },
+  "2.10.0": {
+    "en": "Support v60.0 API change for RFID cards and allow setting current transaction to selected card."
   }
 }
