@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.go-e.charger",
-  "version": "2.10.0",
+  "version": "2.10.1",
   "compatibility": ">=12.2.0",
   "sdk": 3,
   "platforms": [
@@ -690,6 +690,145 @@
           }
         ],
         "id": "set_phases"
+      },
+      {
+        "title": {
+          "en": "Set transaction",
+          "nl": "Transactie instellen",
+          "de": "Transaktion einstellen",
+          "fr": "Définir la transaction"
+        },
+        "titleFormatted": {
+          "en": "Set transaction to [[transaction]]",
+          "nl": "Stel transactie in op [[transaction]]",
+          "de": "Transaktion auf [[transaction]] setzen",
+          "fr": "Définir la transaction sur [[transaction]]"
+        },
+        "hint": {
+          "en": "Sets the transaction to the selected card.",
+          "nl": "Stelt de transactie in op de geselecteerde kaart.",
+          "de": "Stellt die Transaktion auf die ausgewählte Karte ein.",
+          "fr": "Définir la transaction sur la carte sélectionnée."
+        },
+        "args": [
+          {
+            "type": "dropdown",
+            "name": "transaction",
+            "title": {
+              "en": "Transaction",
+              "nl": "Transactie",
+              "de": "Transaktion",
+              "fr": "Transaction"
+            },
+            "values": [
+              {
+                "id": "card_0",
+                "label": {
+                  "en": "Anonymous",
+                  "nl": "Anoniem",
+                  "de": "Anonym",
+                  "fr": "Anonyme"
+                }
+              },
+              {
+                "id": "card_1",
+                "label": {
+                  "en": "1st Card",
+                  "nl": "1e Kaart",
+                  "de": "1. Karte",
+                  "fr": "1ère Carte"
+                }
+              },
+              {
+                "id": "card_2",
+                "label": {
+                  "en": "2nd Card",
+                  "nl": "2e Kaart",
+                  "de": "2. Karte",
+                  "fr": "2ème Carte"
+                }
+              },
+              {
+                "id": "card_3",
+                "label": {
+                  "en": "3rd Card",
+                  "nl": "3e Kaart",
+                  "de": "3. Karte",
+                  "fr": "3ème Carte"
+                }
+              },
+              {
+                "id": "card_4",
+                "label": {
+                  "en": "4th Card",
+                  "nl": "4e Kaart",
+                  "de": "4. Karte",
+                  "fr": "4ème Carte"
+                }
+              },
+              {
+                "id": "card_5",
+                "label": {
+                  "en": "5th Card",
+                  "nl": "5e Kaart",
+                  "de": "5. Karte",
+                  "fr": "5ème Carte"
+                }
+              },
+              {
+                "id": "card_6",
+                "label": {
+                  "en": "6th Card",
+                  "nl": "6e Kaart",
+                  "de": "6. Karte",
+                  "fr": "6ème Carte"
+                }
+              },
+              {
+                "id": "card_7",
+                "label": {
+                  "en": "7th Card",
+                  "nl": "7e Kaart",
+                  "de": "7. Karte",
+                  "fr": "7ème Carte"
+                }
+              },
+              {
+                "id": "card_8",
+                "label": {
+                  "en": "8th Card",
+                  "nl": "8e Kaart",
+                  "de": "8. Karte",
+                  "fr": "8ème Carte"
+                }
+              },
+              {
+                "id": "card_9",
+                "label": {
+                  "en": "9th Card",
+                  "nl": "9e Kaart",
+                  "de": "9. Karte",
+                  "fr": "9ème Carte"
+                }
+              },
+              {
+                "id": "card_10",
+                "label": {
+                  "en": "10th Card",
+                  "nl": "10e Kaart",
+                  "de": "10. Karte",
+                  "fr": "10ème Carte"
+                }
+              }
+            ]
+          },
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
+          }
+        ],
+        "id": "set_transaction"
       },
       {
         "title": {
@@ -2520,7 +2659,7 @@
           }
         }
       ],
-      "setable": false,
+      "setable": true,
       "getable": true,
       "insights": false
     }

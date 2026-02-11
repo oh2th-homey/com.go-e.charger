@@ -124,5 +124,8 @@
   },
   "2.10.0": {
     "en": "Support v60.0 API change for RFID cards and allow setting current transaction to selected card."
+  },
+  "2.10.1": {
+    "en": "Support v60.0 API change for RFID cards and allow setting current transaction to selected card."
   }
 }
