@@ -280,14 +280,7 @@ class mainDevice extends Device {
         await this.setValue('meter_power.session', deviceInfo['meter_power.session'], check);
         await this.setValue('is_allowed', deviceInfo['is_allowed'], check);
         await this.setValue('authentication', deviceInfo['authentication'], check);
-
-        // Map API transaction values to capability enum values
-        let transactionValue = deviceInfo['transaction'];
-        if (transactionValue && typeof transactionValue === 'string') {
-          // Map auth_* to card_* format expected by capability enum
-          transactionValue = transactionValue.replace('auth_', 'card_');
-        }
-        await this.setValue('transaction', transactionValue, check);
+        await this.setValue('transaction', deviceInfo['transaction'], check);
         await this.setValue('button_single_phase', deviceInfo['button_single_phase'], check);
         await this.setValue('button_three_phase', deviceInfo['button_three_phase'], check);
         await this.setValue('num_phases', deviceInfo['num_phases'], check);
@@ -380,7 +373,7 @@ class mainDevice extends Device {
       }
 
       // Transaction capability with card name lookup
-      if (key === 'transaction' && oldVal !== value && !firstRun) {
+      if (key === 'transaction' && oldVal !== value && !firstRun)  {
         const newKey = key.replace(/\./g, '_');
         const { triggers } = this.homey.manifest.flow;
         const triggerExists = triggers.find((trigger) => trigger.id === `${newKey}_changed`);
