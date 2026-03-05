@@ -133,13 +133,12 @@ class mainDevice extends Device {
           return Promise.resolve(await this.api.setGoeChargerValue('alw', val));
         }
         // API v2 transaction (trx) if authentication (acs) is enabled
-        // For now we only support anonymous (auth_0) and no cards, should be easy to allow any card 1 - 10 also
         // Transaction resets automatically after a charging session.
         if (this.hasCapability('authentication') && this.hasCapability('transaction')) {
           const acs = this.getCapabilityValue('authentication');
           const trx = this.getCapabilityValue('transaction');
           this.log(`[Device] ${this.getName()}: ${this.getData().id} set is_allowed: acs='${acs}' trx='${trx}'`);
-          if (acs === true && trx === 'auth_none') {
+          if (acs === true && trx === 'card_none') {
             this.log(`[Device] ${this.getName()}: ${this.getData().id} set is_allowed: authentication expected and transaction not set.`);
             await this.api.setGoeChargerValue('trx', 0);
           }
