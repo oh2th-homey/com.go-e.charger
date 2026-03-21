@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.go-e.charger",
-  "version": "2.10.2",
+  "version": "2.11.0",
   "compatibility": ">=12.2.0",
   "sdk": 3,
   "platforms": [
@@ -2041,12 +2041,11 @@
         }
       ],
       "name": {
-        "en": "Home, 1st gen (CC1)",
-        "nl": "Home, 1e gen (CC1)",
-        "de": "Home, 1. Gen (CC1)",
-        "fr": "Home, 1ère gen (CC1)"
+        "en": "Home, 1st gen",
+        "nl": "Home, 1e gen",
+        "de": "Home, 1. Gen",
+        "fr": "Home, 1ère gen"
       },
-      "deprecated": true,
       "id": "go-eCharger_V1"
     },
     {
@@ -2184,10 +2183,10 @@
         }
       ],
       "name": {
-        "en": "Home (CC1, CM-02)",
-        "nl": "Home (CC1, CM-02)",
-        "de": "Home (CC1, CM-02)",
-        "fr": "Home (CC1, CM-02)"
+        "en": "Home 2nd gen",
+        "nl": "Home 2e gen",
+        "de": "Home 2. Gen",
+        "fr": "Home 2ème gen"
       },
       "id": "go-eCharger_V2"
     },
@@ -2705,10 +2704,10 @@
         }
       ],
       "name": {
-        "en": "Home (CM-03)",
-        "nl": "Home (CM-03)",
-        "de": "Home (CM-03)",
-        "fr": "Home (CM-03)"
+        "en": "Home 3rd gen",
+        "nl": "Home 3e gen",
+        "de": "Home 3. Gen",
+        "fr": "Home 3ème gen"
       },
       "id": "go-eCharger_V3"
     },
@@ -3226,10 +3225,10 @@
         }
       ],
       "name": {
-        "en": "Gemini (GM-10, GM-20)",
-        "nl": "Gemini (GM-10, GM-20)",
-        "de": "Gemini (GM-10, GM-20)",
-        "fr": "Gemini (GM-10, GM-20)"
+        "en": "Gemini",
+        "nl": "Gemini",
+        "de": "Gemini",
+        "fr": "Gemini"
       },
       "id": "go-eCharger_V4"
     }

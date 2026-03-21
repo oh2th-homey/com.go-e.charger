@@ -130,5 +130,8 @@
   },
   "2.10.2": {
     "en": "FIX: Authentication when transaction card is anonymous"
+  },
+  "2.11.0": {
+    "en": "Add support for CORE and PRO chargers."
   }
 }
