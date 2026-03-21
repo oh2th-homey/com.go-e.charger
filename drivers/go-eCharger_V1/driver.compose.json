@@ -1,9 +1,9 @@
 {
   "name": {
-    "en": "Home, 1st gen",
-    "nl": "Home, 1e gen",
-    "de": "Home, 1. Gen",
-    "fr": "Home, 1ère gen"
+    "en": "Home 1st gen",
+    "nl": "Home 1e gen",
+    "de": "Home 1. Gen",
+    "fr": "Home 1ère gen"
   },
   "$extends": ["device", "go-e-APIv1", "pair-APIv1", "settings"]
 }
