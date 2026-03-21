@@ -50,7 +50,7 @@ class mainDevice extends Device {
     this.log(`[Device] ${this.getName()}: ${this.getData().id} settings where changed: ${changedKeys}`);
     this.api.address = newSettings.address;
     try {
-      const initialInfo = await this.api.getInfo();
+      const initialInfo = await this.api.getInfo(this.hasCapability('cable_limit'));
       this.log(`[Device] ${this.getName()}: ${this.getData().id} new settings OK.`);
       this.setAvailable();
       return Promise.resolve(initialInfo);
@@ -215,17 +215,20 @@ class mainDevice extends Device {
 
   async onCapability_CURRENT_LIMIT(value) {
     const current_max = this.getCapabilityValue('current_max');
-    const cable_limit = this.getCapabilityValue('cable_limit');
+    const hasCableLimit = this.hasCapability('cable_limit');
+    const cable_limit = hasCableLimit ? this.getCapabilityValue('cable_limit') : null;
     this.log(`[Device] ${this.getName()}: ${this.getData().id} requested current_limit: '${value}'`);
     this.log(`[Device] ${this.getName()}: ${this.getData().id}           current_max:   '${current_max}'`);
-    this.log(`[Device] ${this.getName()}: ${this.getData().id}           cable_limit:   '${cable_limit}'`);
+    if (hasCableLimit) {
+      this.log(`[Device] ${this.getName()}: ${this.getData().id}           cable_limit:   '${cable_limit}'`);
+    }
     // If requested value is higher than cable limit, set to cable limit
-    if (cable_limit < current_max && value > cable_limit) {
+    if (hasCableLimit && cable_limit !== null && cable_limit < current_max && value > cable_limit) {
       value = cable_limit;
       this.homey.app.sendNotification(this.homey.__('device.set_current_limit.cable_limit', { value }));
     }
     // If requested value is higher than current max, set to current max
-    if (current_max < cable_limit && value > current_max) {
+    if (value > current_max) {
       value = current_max;
       this.homey.app.sendNotification(this.homey.__('device.set_current_limit.device_limit', { value }));
     }
@@ -242,7 +245,8 @@ class mainDevice extends Device {
 
   async setCapabilityValues(check = false) {
     try {
-      const deviceInfo = await this.api.getInfo();
+      const hasCableLimitCapability = this.hasCapability('cable_limit');
+      const deviceInfo = await this.api.getInfo(hasCableLimitCapability);
 
       if (deviceInfo) {
         // console.log(JSON.stringify(deviceInfo));
@@ -284,7 +288,9 @@ class mainDevice extends Device {
         await this.setValue('button_single_phase', deviceInfo['button_single_phase'], check);
         await this.setValue('button_three_phase', deviceInfo['button_three_phase'], check);
         await this.setValue('num_phases', deviceInfo['num_phases'], check);
-        await this.setValue('cable_limit', deviceInfo['cable_limit'], check);
+        if (hasCableLimitCapability) {
+          await this.setValue('cable_limit', deviceInfo['cable_limit'], check);
+        }
         await this.setValue('current_limit', deviceInfo['current_limit'], check);
         await this.setValue('current_max', deviceInfo['current_max'], check);
         await this.setValue('alarm_device', deviceInfo['alarm_device'], check);
@@ -302,18 +308,19 @@ class mainDevice extends Device {
         // Check for device's maximum current configuration and connected Type-2 cables ampere coding
         // and adjust device current_limit capability maximum setting value for the lesser.
         const currentLimitOpts = await this.getCapabilityOptions('current_limit');
-        if (currentLimitOpts.max !== deviceInfo.current_max) {
-          if (deviceInfo.cable_limit > deviceInfo.current_max || deviceInfo.cable_limit === 0 || deviceInfo.cable_limit === null) {
+        let targetCurrentLimitMax = deviceInfo.current_max;
+        if (hasCableLimitCapability && deviceInfo.cable_limit !== 0 && deviceInfo.cable_limit !== null && deviceInfo.cable_limit < deviceInfo.current_max) {
+          targetCurrentLimitMax = deviceInfo.cable_limit;
+        }
+        if (currentLimitOpts.max !== targetCurrentLimitMax) {
+          if (targetCurrentLimitMax === deviceInfo.current_max) {
             this.log(`[Device] ${this.getName()}: ${this.getData().id} setCurrentLimitOpts device Max: '${deviceInfo.current_max}'`);
-            await this.setCapabilityOptions('current_limit', {
-              max: deviceInfo.current_max
-            });
           } else {
             this.log(`[Device] ${this.getName()}: ${this.getData().id} setCurrentLimitOpts cable Max: '${deviceInfo.cable_limit}'`);
-            await this.setCapabilityOptions('current_limit', {
-              max: deviceInfo.cable_limit
-            });
           }
+          await this.setCapabilityOptions('current_limit', {
+            max: targetCurrentLimitMax
+          });
         }
       }
     } catch (error) {
@@ -373,7 +380,7 @@ class mainDevice extends Device {
       }
 
       // Transaction capability with card name lookup
-      if (key === 'transaction' && oldVal !== value && !firstRun)  {
+      if (key === 'transaction' && oldVal !== value && !firstRun) {
         const newKey = key.replace(/\./g, '_');
         const { triggers } = this.homey.manifest.flow;
         const triggerExists = triggers.find((trigger) => trigger.id === `${newKey}_changed`);

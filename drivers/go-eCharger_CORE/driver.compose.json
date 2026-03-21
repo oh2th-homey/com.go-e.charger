@@ -5,5 +5,5 @@
     "de": "CORE",
     "fr": "CORE"
   },
-  "$extends": ["device", "go-e-APIv2", "pair-APIv2", "settings"]
+  "$extends": ["device", "go-e-APIv2-fixed-cable", "pair-APIv2", "settings"]
 }
