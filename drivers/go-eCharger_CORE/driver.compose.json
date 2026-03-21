@@ -1,0 +1,9 @@
+{
+  "name": {
+    "en": "CORE",
+    "nl": "CORE",
+    "de": "CORE",
+    "fr": "CORE"
+  },
+  "$extends": ["device", "go-e-APIv2", "pair-APIv2", "settings"]
+}

@@ -133,8 +133,8 @@ class mainDevice extends Device {
           return Promise.resolve(await this.api.setGoeChargerValue('alw', val));
         }
         // API v2 transaction (trx) if authentication (acs) is enabled
-        // Transaction resets automatically after a charging session.
-        if (this.hasCapability('authentication') && this.hasCapability('transaction')) {
+        // and charging is explicitly allowed. Transaction resets automatically after a charging session.
+        if (value && this.hasCapability('authentication') && this.hasCapability('transaction')) {
           const acs = this.getCapabilityValue('authentication');
           const trx = this.getCapabilityValue('transaction');
           this.log(`[Device] ${this.getName()}: ${this.getData().id} set is_allowed: acs='${acs}' trx='${trx}'`);
@@ -143,7 +143,8 @@ class mainDevice extends Device {
             await this.api.setGoeChargerValue('trx', 0);
           }
         }
-        if (!value) val = 1; // Enable charging - API v2 (frc) forceState (Neutral=0, Off=1, On=2)
+        val = value ? 0 : 1; // API v2 (frc) forceState (Neutral=0, Off=1, On=2)
+        this.log(`[Device] ${this.getName()}: ${this.getData().id} set is_allowed forceState: '${val}'`);
         return Promise.resolve(await this.api.setGoeChargerValue('frc', val));
       }
     } catch (error) {

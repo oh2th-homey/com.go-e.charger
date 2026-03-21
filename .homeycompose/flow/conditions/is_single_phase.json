@@ -21,7 +21,7 @@
     {
       "type": "device",
       "name": "device",
-      "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
+      "filter": "driver_id=go-eCharger_V3|go-eCharger_V4|go-eCharger_CORE|go-eCharger_PRO"
     }
   ],
   "deprecated": true

@@ -1,0 +1,104 @@
+<script type="text/javascript">
+
+  Homey.setTitle(Homey.__('pair.title'));
+  
+  $(function() {
+  
+    $('#test-connection').click(function() {
+      $('.goeCharger-test').hide();
+      $('.goeCharger-ok').hide();
+      $('.goeCharger-error').hide();
+      $('.goeCharger-info').hide();
+  
+      var inputaddress = $('#address').val();
+  
+      if (inputaddress != '') {
+        var data = {
+          address: inputaddress,
+        };
+  
+        Homey.emit('manual_pairing', data)
+          .then(result => {
+            var goeChargerinfo =
+              "<div class='info-row'><span class='info-label' data-i18n='pair.serial'>Device Serial:</span><span class='info-value'> "+ result.data.id +"</span></div>"+
+              "<div class='info-row'><span class='info-label' data-i18n='pair.name'>Device Name:</span><span class='info-value'> "+ result.name +"</span></div>"+
+              "<div class='info-row'><span class='info-label' data-i18n='pair.address'>IP Address:</span><span class='info-value'> "+ result.settings.address +"</span></div>"+
+              "<div class='info-row'><span class='info-label' data-i18n='pair.driver'>Device Driver:</span><span class='info-value'> "+ result.settings.driver +"</span></div>";
+            $('.goeCharger-info').show();
+            $('.goeCharger-info').html(goeChargerinfo);
+            $('.goeCharger-test').show();
+            $('#connect').prop('disabled', false);
+          })
+          .catch(error => {
+            $('.goeCharger-error').show();
+            $('.goeCharger-error-msg').html(error);
+          });
+      } else {
+        $('.goeCharger-error').show();
+        $('.goeCharger-error-msg').html( Homey.__('pair.nosettings') );
+      }
+  
+    });
+  
+    $('#connect').click(function() {
+      Homey.showView('add_device');
+    });
+  })
+  </script>
+  
+  <style type="text/css">
+    .form-group {
+      width: 100%;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .form-group label {
+      display: block;
+    }
+    .goeCharger-status, .goeCharger-info {
+      display: none;
+    }
+    .goeCharger-info {
+      margin-top: 10px;
+      font-size: 12px;
+    }
+    .goeCharger-info .info-row {
+      min-width: 150px;
+      padding-bottom: 4px;
+    }
+    .goeCharger-info .info-label {
+      display: inline-block;
+      min-width: 100px;
+      font-weight: 700;
+    }
+    .buttons, .messages {
+      padding-top: 14px;
+    }
+    .button:disabled {
+      color: #ccc;
+    }
+    .button:enabled {
+      background-color: #00c139 !important;
+      color: #fff;
+    }
+  </style>
+  
+  <p data-i18n="pair.intro">Enter the IP address for your go-eCharger device.</p>
+  <div class="goeCharger-pairing">
+    <div class="form-group">
+      <label for="address" data-i18n="pair.address">IP address</label>
+      <input type="text" class="form-control" id="address" placeholder="0.0.0.0">
+    </div>
+    <div class="form-group buttons">
+      <button id="test-connection" class="button" data-i18n="pair.test">Test Connection</button>
+      <button id="connect" class="button" data-i18n="pair.connect" disabled>Connect</button>
+    </div>
+  </div>
+  
+  <div class="goeCharger-info"></div>
+  
+  <div class="messages">
+    <p class="goeCharger-status goeCharger-test" style="color: #008C23;"><i class="fa fa-check"></i> <span class="goeCharger-test-msg" data-i18n="pair.testing">Connection test succesfull</span></p>
+    <p class="goeCharger-status goeCharger-ok" style="color: #008C23;"><i class="fa fa-check"></i> <span class="goeCharger-ok-msg" data-i18n="pair.success">goe-Charger added succesfully</span></p>
+    <p class="goeCharger-status goeCharger-error" style="color: #ff6300;"><i class="fa fa-times"></i> <span class="goeCharger-error-msg"></span></p>
+  </div>
